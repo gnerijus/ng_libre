@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="document_report">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <div class="row">
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th style="text-align:left;"><strong>Title</strong></th>
+                                    <th style="text-align:left;"><strong>Description</strong></th>
+                                    <th style="text-align:left;"><strong>Partner</strong></th>
+                                    <th style="text-align:left;"><strong>Date</strong></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="docs" t-as="o">
+                                    <tr>
+                                        <td style="text-align:left;">
+                                            <t t-esc="o.title"/>
+                                        </td>
+                                        <td style="text-align:left;">
+                                            <t t-esc="o.description"/>
+                                        </td>
+                                         <td style="text-align:left;">
+                                             <t t-esc="o.partner_id and o.partner_id.name or ''"/>
+                                        </td>
+                                        <td style="text-align:left;">
+                                            <t t-esc="o.date"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>
+
+
+

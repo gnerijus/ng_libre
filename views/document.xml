@@ -1,0 +1,72 @@
+<odoo>
+
+    <record id="document_form" model="ir.ui.view">
+        <field name="name">ng_libre.document.form</field>
+        <field name="model">ng_libre.document</field>
+            <field name="arch" type="xml">
+                <form string="Document">
+                    <sheet>
+                        <!--header>
+                        </header-->
+                        <group>
+                            <group>
+                                <field name="title"/>
+                                <field name="description"/>
+                            </group>
+                            <group>
+                                <field name="partner_id"/>
+                                <field name="date"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="user_id"/>
+                                <field title="Employers" name="employer_ids" no_attrs="{'invisible':[('employer_ids','=',[])]}" widget="many2many_tags"/>
+                            </group>
+                        </group>
+
+                        <!--footer>
+                            <button special="cancel" string="Cancel" class="oe_link"
+                                    invisible="not context.get('active_ids')"/>
+                        </footer-->
+
+                    </sheet>
+                </form>
+            </field>
+    </record>
+
+    <record id="document_tree" model="ir.ui.view">
+        <field name="name">ng_libre.document.tree</field>
+        <field name="model">ng_libre.document</field>
+        <field name="arch" type="xml">
+            <tree string="Documents">
+                <field name="title"/>
+                <field name="description"/>
+                <field name="partner_id"/>
+                <field name="date"/>
+                <field name="user_id"/>
+                <field name="employer_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+     </record>
+
+
+    <record id="document_search" model="ir.ui.view">
+        <field name="name">ng_libre.document.search</field>
+        <field name="model">ng_libre.document</field>
+        <field name="arch" type="xml">
+            <search string="Search Bars">
+                <field name="title" filter_domain="['|','|',('title', 'ilike', self),('description', 'ilike', self)]"/>
+                <field name="description"/>
+                <field name="partner_id"/>
+                <field name="partner_id"/>
+                <field name="user_id"/>
+                <separator />
+                <group expand="0" string="Group By">
+                    <filter string="User" name="material_id" context="{'group_by':'user_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+</odoo>

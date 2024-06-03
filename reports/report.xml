@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <report
+        id="report_document"
+        string="Document"
+        model="ng_libre.document"
+        report_type="qweb-pdf"
+        name="ng_libre.document_report"
+        file="ng_libre.document_report"
+        menu="True"
+        />
+
+
+</odoo>
